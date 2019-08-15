@@ -19,7 +19,7 @@ matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
 class ContextSegmentation(BaseDataset):
-    BASE_DIR = 'voc_dataset'
+    BASE_DIR = 'pcontext_dataset'
     NUM_CLASS = 60
     def __init__(self, root, split='train',
                  mode=None, transform=None, target_transform=None, **kwargs):

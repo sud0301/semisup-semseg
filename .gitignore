@@ -1,5 +1,6 @@
 data/voc_dataset/*
 data/city_dataset/*
+data/pcontext_dataset/*
 checkpoints/*
 pretrained_models/*
 

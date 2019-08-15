@@ -16,16 +16,16 @@ pip install scipy tqdm matplotlib numpy opencv-python
 
 ## Dataset preparation
 
-Download ImageNet pretrained Resnet-101([Link](resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth')) and place it ```./pretrained_models/```
+Download ImageNet pretrained Resnet-101([Link](https://download.pytorch.org/models/resnet101-5d3b4d8f.pth)) and place it ```./pretrained_models/```
 
 ### PASCAL VOC
-Download the dataset([Link](https://lmb.informatik.uni-freiburg.de/resources/datasets/voc_dataset.tar.gz)) and extract in ```./data/voc_dataset```
+Download the dataset([Link](https://lmb.informatik.uni-freiburg.de/resources/datasets/voc_dataset.tar.gz)) and extract in ```./data/voc_dataset/```
 
 ### PASCAL Context
-Download the new annotations([Link](https://lmb.informatik.uni-freiburg.de/resources/datasets/pascal_context_labels.tar.gz)) and extract in ```./data```
+Download the annotations([Link](https://lmb.informatik.uni-freiburg.de/resources/datasets/pascal_context_labels.tar.gz)) and extract in ```./data/pcontext_dataset/```
 
 ### Cityscapes
-Download the dataset from the Cityscapes dataset server([Link](https://www.cityscapes-dataset.com/)). Download the files named 'gtFine_trainvaltest.zip', 'leftImg8bit_trainvaltest.zip' and extract in ```./data/city_dataset```  
+Download the dataset from the Cityscapes dataset server([Link](https://www.cityscapes-dataset.com/)). Download the files named 'gtFine_trainvaltest.zip', 'leftImg8bit_trainvaltest.zip' and extract in ```./data/city_dataset/```  
 
 ## Training and Validation on PASCAL-VOC Dataset
 
