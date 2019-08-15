@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Semi-supevised Semantic Segmentation with High- and Low-level Consistency
 
 This Pytorch repository contains the code for our paper Semi-supervised Semantic Segmentation with High- and Low-level Consistency. The approach uses two network branches that link semi-supervised classification with semi-supervised segmentation including self-training. The approach attains significant improvement over existing methods, especially when trained with very few labeled samples. On several standard benchmarks - PASCAL VOC 2012,PASCAL-Context, and Cityscapes - the approach achieves new state-of-the-art in semi-supervised learning.
@@ -69,7 +70,7 @@ python train_s4GAN.py  --dataset pascal_context  \
 
 python evaluate.py     --dataset pascal_context  \
                        --num-classes 60 \
-                       --restore-from ./checkpoints/pc_semi_0_125/VOC_30000.pth
+                       --restore-from ./checkpoints/pc_semi_0_125/VOC_40000.pth
 ```
 
 ## Training and Validation on Cityscapes Dataset
@@ -103,22 +104,6 @@ This work is based on the [Mean-Teacher](https://arxiv.org/abs/1703.01780) Semi-
 4. Load the pretrained ImageNet weights for ResNet-101 from ```./pretrained_models/```.
 5. Use student/teacher predictions for Network output fusion with s4GAN branch. 
 6. For lower labeled-ratio, early stopping might be required.  
-
-## Results
- 
-<table><tbody>
-    <th valign="bottom">Methods/Datasets</th>
-    <th valign="bottom">PASCAL VOC</th>
-    <th valign="bottom">PASCAL Context</th>
-    <th valign="bottom">Cityscapes</th>
-    <tr>
-        <td>DeepLabv2 (12.5% lab) </td><td> Running </td><td> 61.5</td><td> Running</td>
-    </tr>
-    <tr>
-        <td> Our s4GAN (12.5% lab + 87.5% unlab)</td><td>Running</td><td>64.4</td><td> 58.5</td>
-    </tr>
-</tbody></table>
-
 
 
 ## Acknowledgement
