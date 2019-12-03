@@ -39,7 +39,7 @@ DATA_LIST_PATH = './data/voc_list/train_aug.txt'
 CHECKPOINT_DIR = './checkpoints/voc_full/'
 
 MODEL = 'DeepLab'
-BATCH_SIZE = 6
+BATCH_SIZE = 10
 NUM_STEPS = 40000
 SAVE_PRED_EVERY = 5000
 
@@ -198,7 +198,7 @@ def main():
         train_sampler = data.sampler.SubsetRandomSampler(train_ids[:partial_size])
 
         trainloader = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, sampler=train_sampler, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, sampler=train_sampler, num_workers=4, pin_memory=True)
 
     trainloader_iter = iter(trainloader)
 

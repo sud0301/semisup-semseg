@@ -224,7 +224,6 @@ def main():
     if not os.path.exists(args.checkpoint_dir):
         os.makedirs(args.checkpoint_dir)
 
-
     if args.dataset == 'pascal_voc':    
         train_dataset = VOCDataSet(args.data_dir, args.data_list, crop_size=input_size,
                         scale=args.random_scale, mirror=args.random_mirror, mean=IMG_MEAN)
@@ -253,13 +252,13 @@ def main():
 
     if args.labeled_ratio is None:
         trainloader = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, shuffle=True, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, shuffle=True, num_workers=4, pin_memory=True)
 
         trainloader_gt = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, shuffle=True, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, shuffle=True, num_workers=4, pin_memory=True)
         
         trainloader_remain = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, shuffle=True, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, shuffle=True, num_workers=4, pin_memory=True)
         trainloader_remain_iter = iter(trainloader_remain)
 
     else:
@@ -279,11 +278,11 @@ def main():
         train_gt_sampler = data.sampler.SubsetRandomSampler(train_ids[:partial_size])
 
         trainloader = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, sampler=train_sampler, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, sampler=train_sampler, num_workers=4, pin_memory=True)
         trainloader_remain = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, sampler=train_remain_sampler, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, sampler=train_remain_sampler, num_workers=4, pin_memory=True)
         trainloader_gt = data.DataLoader(train_dataset,
-                        batch_size=args.batch_size, sampler=train_gt_sampler, num_workers=16, pin_memory=True)
+                        batch_size=args.batch_size, sampler=train_gt_sampler, num_workers=4, pin_memory=True)
 
         trainloader_remain_iter = iter(trainloader_remain)
 

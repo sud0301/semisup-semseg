@@ -110,3 +110,15 @@ This work is based on the [Mean-Teacher](https://arxiv.org/abs/1703.01780) Semi-
 Parts of the code have been adapted from: 
 [DeepLab-Resnet-Pytorch](https://github.com/speedinghzl/Pytorch-Deeplab), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg), [PyTorch-Encoding](https://github.com/zhanghang1989/PyTorch-Encoding)
 
+
+## Citation
+
+```
+@article{1908.05724,
+    Author = {Sudhanshu Mittal and Maxim Tatarchenko and Thomas Brox},
+    Title = {Semi-Supervised Semantic Segmentation with High- and Low-level Consistency},
+    journal = {arXiv preprint arXiv:1908.05724},
+    Year = {2019},
+}
+```
+
