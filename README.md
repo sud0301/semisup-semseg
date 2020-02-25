@@ -114,7 +114,7 @@ Parts of the code have been adapted from:
 ## Citation
 
 ```
-@article{1908.05724,
+@article{s4gan_mittal,
     Author = {Sudhanshu Mittal and Maxim Tatarchenko and Thomas Brox},
     Title = {Semi-Supervised Semantic Segmentation with High- and Low-level Consistency},
     journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
