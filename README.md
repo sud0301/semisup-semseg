@@ -117,7 +117,7 @@ Parts of the code have been adapted from:
 @article{1908.05724,
     Author = {Sudhanshu Mittal and Maxim Tatarchenko and Thomas Brox},
     Title = {Semi-Supervised Semantic Segmentation with High- and Low-level Consistency},
-    journal = {arXiv preprint arXiv:1908.05724},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
     Year = {2019},
 }
 ```
