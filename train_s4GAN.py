@@ -37,10 +37,10 @@ IMG_MEAN = np.array((104.00698793,116.66876762,122.67891434), dtype=np.float32)
 NUM_CLASSES = 21 # 21 for PASCAL-VOC / 60 for PASCAL-Context / 19 Cityscapes 
 DATASET = 'pascal_voc' #pascal_voc or pascal_context 
 
-SPLIT_ID = './splits/voc/split_0.pkl'
+SPLIT_ID = None
 
 MODEL = 'DeepLab'
-BATCH_SIZE = 4
+BATCH_SIZE = 8
 NUM_STEPS = 40000
 SAVE_PRED_EVERY = 5000
 
@@ -211,6 +211,7 @@ def main():
     model.train()
     model.cuda(args.gpu)
 
+    model = torch.nn.DataParallel(model).cuda()
     cudnn.benchmark = True
 
     # init D
@@ -218,6 +219,10 @@ def main():
 
     if args.restore_from_D is not None:
         model_D.load_state_dict(torch.load(args.restore_from_D))
+
+    model_D = torch.nn.DataParallel(model_D).cuda()
+    cudnn.benchmark = True    
+
     model_D.train()
     model_D.cuda(args.gpu)
 
@@ -290,7 +295,7 @@ def main():
     trainloader_gt_iter = iter(trainloader_gt)
 
     # optimizer for segmentation network
-    optimizer = optim.SGD(model.optim_parameters(args),
+    optimizer = optim.SGD(model.module.optim_parameters(args),
                 lr=args.learning_rate, momentum=args.momentum,weight_decay=args.weight_decay)
     optimizer.zero_grad()
 

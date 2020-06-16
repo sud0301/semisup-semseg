@@ -29,6 +29,8 @@ Download the dataset from the Cityscapes dataset server([Link](https://www.citys
 
 ## Training and Validation on PASCAL-VOC Dataset
 
+Results in the paper are averaged over 3 random splits. Same splits are used for reporting baseline performance for fair comparison.
+
 ### Training fully-supervised Baseline (FSL)
 ```
 python train_full.py    --dataset pascal_voc  \
@@ -42,8 +44,7 @@ python train_s4GAN.py   --dataset pascal_voc  \
                         --checkpoint-dir ./checkpoints/voc_semi_0_125 \
                         --labeled-ratio 0.125 \
                         --ignore-label 255 \ 
-                        --num-classes 21 \
-                        --split-id ./splits/voc/split_0.pkl
+                        --num-classes 21
 ``` 
 ### Validation 
 ```
