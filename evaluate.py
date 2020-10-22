@@ -13,6 +13,7 @@ from torch.autograd import Variable
 import torchvision.models as models
 import torch.nn.functional as F
 from torch.utils import data, model_zoo
+import torch.backends.cudnn as cudnn
 
 from model.deeplabv2 import Res_Deeplab
 #from model.deeplabv3p import Res_Deeplab
@@ -181,6 +182,9 @@ def main():
 
     model = Res_Deeplab(num_classes=args.num_classes)
     model.cuda()
+
+    model = torch.nn.DataParallel(model).cuda()
+    cudnn.benchmark = True
 
     if args.restore_from[:4] == 'http' :
         saved_state_dict = model_zoo.load_url(args.restore_from)
