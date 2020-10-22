@@ -162,7 +162,8 @@ def get_iou(args, data_list, class_num, save_path=None):
             "train", "motorcycle", "bicycle")) 
 
     for i, iou in enumerate(j_list):
-        print('class {:2d} {:12} IU {:.2f}'.format(i, classes[i], j_list[i]))
+        if j_list[i] > 0:
+            print('class {:2d} {:12} IU {:.2f}'.format(i, classes[i], j_list[i]))
     
     print('meanIOU: ' + str(aveJ) + '\n')
     if save_path:
