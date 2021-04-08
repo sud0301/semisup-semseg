@@ -56,7 +56,7 @@ python evaluate.py --dataset pascal_voc  \
 ### Training MLMT Branch
 
 ```
-python mlmt.py \
+python train_mlmt.py \
         --batch-size-lab 16 \
         --batch-size-unlab 80 \
         --labeled-ratio 0.125 \
