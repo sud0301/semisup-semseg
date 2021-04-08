@@ -53,6 +53,27 @@ python evaluate.py --dataset pascal_voc  \
                    --restore-from ./checkpoints/voc_semi_0_125/VOC_30000.pth 
 ```
 
+### Training MLMT Branch
+
+```
+python mlmt.py \
+        --batch-size-lab 16 \
+        --batch-size-unlab 80 \
+        --labeled-ratio 0.125 \
+        --exp-name voc_semi_0_125_MLMT \
+        --pkl-file ./checkpoints/voc_semi_0_125/train_voc_split.pkl
+```
+
+### Final Evaluation S4GAN + MLMT
+```
+python evaluate.py --dataset pascal_voc  \
+                   --num-classes 21 \
+                   --restore-from ./checkpoints/voc_semi_0_125/VOC_30000.pth \
+                   --with-mlmt \
+                   --mlmt-file ./mlmt_output/voc_semi_0_125_MLMT/output_ema_raw_100.txt
+    
+```
+
 ## Training and Validation on PASCAL-Context Dataset
 ```
 python train_full.py    --dataset pascal_context  \
@@ -95,16 +116,6 @@ python evaluate.py      --dataset cityscapes \
                         --num-classes 19 \
                         --restore-from ./checkpoints/city_semi_0_125/VOC_30000.pth 
 ```
-
-## Instructions for setting-up Multi-Label Mean-Teacher branch
-This work is based on the [Mean-Teacher](https://arxiv.org/abs/1703.01780) Semi-supervised Learning work. To use the MLMT branch, follow the instructions below. 
-1. Fork the [mean-teacher](https://github.com/CuriousAI/mean-teacher) repo. 
-2. Modify the fully connected layer, according to the number of classes and add Sigmoid activation for multi-label classification.
-3. Use Binary Cross Entropy loss fucntion instead of multi-class Cross entropy. 
-4. Load the pretrained ImageNet weights for ResNet-101 from ```./pretrained_models/```.
-5. Use student/teacher predictions for Network output fusion with s4GAN branch. 
-6. For lower labeled-ratio, early stopping might be required.  
-
 
 ## Acknowledgement
 

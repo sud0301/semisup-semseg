@@ -15,6 +15,12 @@ train_voc*
 evaluate_*
 load_*
 results/*
+mlmt_output/
+reports/
 
+mlmt_data.py
+mlmt_v1.py
+mlmt_v2.py
+mlmt_feat.py
 *.sh
 myprog*

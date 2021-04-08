@@ -37,7 +37,7 @@ NUM_CLASSES = 21 # 60 for pascal context
 RESTORE_FROM = ''
 PRETRAINED_MODEL = None
 SAVE_DIRECTORY = 'results'
-
+MLMT_FILE = './mlmt_output/output_ema_p_1_0_voc_5.txt'
 
 def get_arguments():
     """Parse all the arguments provided from the CLI.
@@ -60,6 +60,8 @@ def get_arguments():
                         help="Number of classes to predict (including background).")
     parser.add_argument("--restore-from", type=str, default=RESTORE_FROM,
                         help="Where restore model parameters from.")
+    parser.add_argument("--mlmt-file", type=str, default=MLMT_FILE,
+                        help="Where MLMT output")
     parser.add_argument("--save-dir", type=str, default=SAVE_DIRECTORY,
                         help="Directory to store results")
     parser.add_argument("--gpu", type=int, default=0,
@@ -222,7 +224,7 @@ def main():
     colorize = VOCColorize()
    
     if args.with_mlmt:
-        mlmt_preds = np.loadtxt('mlmt_output/output_ema_p_1_0_voc_5.txt', dtype = float) # best mt 0.05
+        mlmt_preds = np.loadtxt(args.mlmt_file, dtype = float) 
 
         mlmt_preds[mlmt_preds>=0.2] = 1
         mlmt_preds[mlmt_preds<0.2] = 0 
