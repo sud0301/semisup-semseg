@@ -116,6 +116,20 @@ python evaluate.py      --dataset cityscapes \
                         --num-classes 19 \
                         --restore-from ./checkpoints/city_semi_0_125/VOC_30000.pth 
 ```
+##Training and validation on Cityscapes with DeepLabv3+ (WRN-38 backbone)
+```
+python train_s4GAN_wrn38.py   --dataset cityscapes \
+                        --checkpoint-dir ./checkpoints/city_semi_v3_wrn38_0_10 \
+                        --labeled-ratio 0.10 \
+                        --ignore-label 250 \
+                        --num-classes 19 \
+                        --split-id ./splits/city/split_0.pkl \
+                        --input-size '256,512' \
+                        --threshold-st 0.55 \
+                        --learning-rate-D 1e-5 \
+                        --learning-rate 1e-3 \
+                        --out results/city_semi_v3_wrn38_0_10
+```
 
 ## Acknowledgement
 
